@@ -1,0 +1,9 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - eric-data-document-database-pg-crd-sync.yaml
+  - eric-data-kvdb-ag-crd-sync.yaml
+  - eric-data-message-bus-kf-crd-sync.yaml
+  - eric-sec-certm-crd-sync.yaml
+  - eric-sec-sip-tls-crd-sync.yaml
+  - eric-tm-ingress-controller-cr-crd-sync.yaml

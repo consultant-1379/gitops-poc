@@ -1,0 +1,11 @@
+apiVersion: v1
+data:
+  values.yaml: |
+    global:
+      registry:
+        pullSecret: arm-pullsecret
+      pullSecret: arm-pullsecret
+kind: ConfigMap
+metadata:
+  name: shared-values
+  namespace: flux-system

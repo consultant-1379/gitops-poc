@@ -1,0 +1,15 @@
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: dl380x4236-tenant
+  namespace: flux-system
+spec:
+  serviceAccountName: kustomize-controller
+  interval: 1m0s
+  path: ../tenants/dl380x4236/eric-eea-poc/eric-eea-ns
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  dependsOn:
+  - name: dl380x4236-infrastructure

@@ -1,0 +1,12 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: HelmRepository
+metadata:
+  name: proj-adp-gs-all-helm
+  namespace: flux-system
+spec:
+  interval: 1m0s
+  provider: generic
+  url: https://arm.sero.gic.ericsson.se/artifactory/proj-adp-gs-all-helm/
+  secretRef:
+    name: helm-repo

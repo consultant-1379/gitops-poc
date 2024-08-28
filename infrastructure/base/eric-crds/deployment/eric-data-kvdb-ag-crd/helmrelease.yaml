@@ -1,0 +1,21 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: eric-data-kvdb-ag-crd
+  namespace: flux-system
+spec:
+  chart:
+    spec:
+      chart: eric-data-kvdb-ag-crd
+      sourceRef:
+        kind: HelmRepository
+        name: proj-adp-gs-all-helm
+        namespace: flux-system
+      version: 9.0.0+1
+  interval: 1m0s
+  serviceAccountName: helm-controller
+  targetNamespace: eric-crd-ns
+  valuesFrom:
+    - kind: ConfigMap
+      name: shared-values
+      valuesKey: values.yaml

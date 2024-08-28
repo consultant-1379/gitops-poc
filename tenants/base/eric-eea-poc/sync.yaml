@@ -1,0 +1,26 @@
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: eric-eea-poc
+  namespace: eric-eea-ns
+spec:
+  interval: 1m0s
+  path: ./
+  prune: true
+  serviceAccountName: eric-eea-poc
+  sourceRef:
+    kind: GitRepository
+    name: eric-eea-poc-repo
+---
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: GitRepository
+metadata:
+  name: eric-eea-poc-repo
+  namespace: eric-eea-ns
+spec:
+  interval: 30m0s
+  ref:
+    branch: master
+  secretRef:
+    name: eric-eea-poc-git-secret
+  url: https://gerrit.ericsson.se/a/EEA/gitops-apps
